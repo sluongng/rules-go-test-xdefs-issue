@@ -1,0 +1,14 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "liba_lib",
+    srcs = ["liba.go"],
+    importpath = "a/liba",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "liba",
+    embed = [":liba_lib"],
+    visibility = ["//visibility:public"],
+)
